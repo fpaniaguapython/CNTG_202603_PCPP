@@ -1,5 +1,3 @@
-import json
-
 class Motor:
     def __init__(self, nombre, potencia):
         self.nombre = nombre
