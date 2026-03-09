@@ -1,16 +1,19 @@
+import json
+
 class Factura:
-    def __init__(self, importe):
+    def __init__(self, cliente, importe):
+        self.cliente = cliente
         self.importe = importe
 
-def duplicar_factura(factura):
-    factura.importe*=2
+    def get_json_data(self):
+        return json.dumps({
+            "cliente": self.cliente,
+            "importe": self.importe
+        }, ensure_ascii=False)
+    
+factura = Factura('Rosalía',1000)
 
-def duplicar_importe(importe):
-    importe*=2
+json = factura.get_json_data()
+print(json)
 
-importe = 1000
-factura = Factura(importe)
-duplicar_factura(factura)
-duplicar_importe(importe)
-print(factura.importe) # 2000
-print(importe) # 1000
+
