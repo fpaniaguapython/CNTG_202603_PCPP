@@ -1,11 +1,13 @@
 class My_Meta(type):
     def __new__(mcs, name, bases, dictionary):
+        print('Ejecutando método __new__')
         obj = super().__new__(mcs, name, bases, dictionary)
         obj.custom_attribute = 'Added by My_Meta'
         return obj
     
 class My_Class(metaclass=My_Meta):
-    pass
+    def __init__(self):
+        print('Ejecutando método __main__')
 
 print(My_Class.__dict__)
 
